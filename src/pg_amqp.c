@@ -195,7 +195,7 @@ local_amqp_get_bs(broker_id) {
         goto busted;
       }
       amqp_set_sockfd(bs->conn, bs->sockfd);
-      s_reply = amqp_login(bs->conn, vhost, 0, 131072,
+      s_reply = amqp_login(bs->conn, vhost, 10000, 131072,
                            0, AMQP_SASL_METHOD_PLAIN,
                            user, pass);
       if(s_reply.reply_type != AMQP_RESPONSE_NORMAL) {
